@@ -3,13 +3,13 @@
     Controllers are responsible to handle Request and Response
 */
 
-const {Comedian} = require("../models");
+const {Title} = require("../models");
 const httpStatus = require("http-status");
 
 // Implement create function
 const create = async (req, res) => {
     try{
-        const result = await Comedian.create(req.body);
+        const result = await Title.create(req.body);
         res.json(result);   
     }catch(e){
         console.error(e);
@@ -20,7 +20,7 @@ const create = async (req, res) => {
 const findAll = async (req, res) => {
     try{        
         console.log(req.query);
-        const result = await Comedian.find(req.query).exec();
+        const result = await Title.find(req.query).exec();
         res.json(result);
     }catch(e){
         console.error(e);
@@ -31,7 +31,7 @@ const findAll = async (req, res) => {
 const updateOne = async (req, res) => {
     try{
         const id = req.params.id;
-        const updated = await Comedian.updateOne({_id:id}, {$set:req.body});
+        const updated = await Title.updateOne({_id:id}, {$set:req.body});
         res.json(updated);
     }catch(e){
         console.error(e);
@@ -42,7 +42,7 @@ const updateOne = async (req, res) => {
 const deleteOne = async (req, res) => {
     try{
         const id = req.params.id;
-        const result = await Comedian.deleteOne({_id:id});
+        const result = await Title.deleteOne({_id:id});
         res.json(result);
     }catch(e){
         console.error(e);
@@ -53,7 +53,7 @@ const deleteOne = async (req, res) => {
 const findOne = async (req, res) => {
     try{
         const id = req.params.id;
-        const fetched = await Comedian.findOne({_id:id});
+        const fetched = await Title.findOne({_id:id});
         res.json(fetched);
     }catch(e){
         console.error(e);
