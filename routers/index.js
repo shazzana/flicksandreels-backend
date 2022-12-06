@@ -11,9 +11,13 @@ const {
   updateOne: updateOneShow,
   deleteOne: deleteOneShow,
 } = require("../controllers/show-controller");
+const {router: AuthRouter} = require('./auth-router');
 
 // Middleware
 app.use(express.json());
+
+// Routers
+app.use("/auth", AuthRouter);
 
 // Endpoints
 app.post("/title", create);
