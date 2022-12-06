@@ -4,13 +4,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const {
-  create,
-  findAll,
-  findOne,
-  updateOne,
-  deleteOne,
-} = require("../controllers/comedian-controller");
+const {create, findAll, findOne, updateOne, deleteOne} = require("../controllers/title-controller");
 const {
   create: createShow,
   findAll: findAllShow,
@@ -22,11 +16,11 @@ const {
 app.use(express.json());
 
 // Endpoints
-app.post("/comedians", create);
-app.get("/comedians", findAll);
-app.get("/comedians/:id", findOne);
-app.put("/comedians/:id", updateOne);
-app.delete("/comedians/:id", deleteOne);
+app.post("/title", create);
+app.get("/title", findAll);
+app.get("/title/:id", findOne);
+app.put("/title/:id", updateOne);
+app.delete("/title/:id", deleteOne);
 app.post("/shows", createShow);
 app.get("/shows", findAllShow);
 

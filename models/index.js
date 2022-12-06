@@ -1,6 +1,6 @@
 // Import dependencies
 const mongoose = require("mongoose");
-const Comedian = require("./comedian.js");
+const Title = require("./title.js");
 const Show = require("./show.js");
 const PayRoll = require("./payroll");
 const Rates = require("./rates");
@@ -22,7 +22,7 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 
 // Export models
 module.exports = {
-  Comedian,
+  Title,
   Show,
   PayRoll,
   Rates,
