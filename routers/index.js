@@ -4,14 +4,14 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const {router: TitleRouter} = require("./title-router");
+const { router: TitleRouter } = require("./title-router");
 const {
   create: createShow,
   findAll: findAllShow,
   updateOne: updateOneShow,
   deleteOne: deleteOneShow,
 } = require("../controllers/show-controller");
-const {router: AuthRouter} = require('./auth-router');
+const { router: AuthRouter } = require("./auth-router");
 
 // Middleware
 app.use(express.json());
@@ -20,8 +20,8 @@ app.use(express.json());
 app.use("/auth", AuthRouter);
 
 app.get("/", (req, res) => {
-  res.send("This is the root directory")
-})
+  res.send("This is the root directory");
+});
 
 // Endpoints
 app.use("/title", TitleRouter);
