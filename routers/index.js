@@ -4,7 +4,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const {create, findAll, findOne, updateOne, deleteOne} = require("../controllers/title-controller");
+const {router: TitleRouter} = require("./title-router");
 const {
   create: createShow,
   findAll: findAllShow,
@@ -20,11 +20,8 @@ app.use(express.json());
 app.use("/auth", AuthRouter);
 
 // Endpoints
-app.post("/title", create);
-app.get("/title", findAll);
-app.get("/title/:id", findOne);
-app.put("/title/:id", updateOne);
-app.delete("/title/:id", deleteOne);
+app.use("/title", TitleRouter);
+
 app.post("/shows", createShow);
 app.get("/shows", findAllShow);
 
