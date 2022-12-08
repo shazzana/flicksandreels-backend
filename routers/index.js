@@ -31,6 +31,6 @@ app.delete("/shows/:id", deleteOneShow);
 app.use(express.static("public"));
 
 // Start server
-app.listen(3000, () => {
-  console.log("Listening to port 3000...");
+app.listen(process.env.PORT, () => {
+  console.log("Listening to...", process.env.PORT);
 });
