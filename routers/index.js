@@ -16,8 +16,6 @@ const { router: TitleRouter } = require("./title-router");
 const { router: ReviewRouter } = require("./review-router");
 const { router: AuthRouter } = require("./auth-router");
 
-const cors = require("cors");
-
 // Middleware
 app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.json());
