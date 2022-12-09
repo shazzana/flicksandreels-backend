@@ -31,5 +31,3 @@ const titleSchema = new Schema(
 const Title = mongoose.model("Title", titleSchema);
 
 module.exports = Title;
-
-// "Comedian" => "comedians"
