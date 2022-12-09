@@ -5,12 +5,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const {router: TitleRouter} = require("./title-router");
-const {
-  create: createShow,
-  findAll: findAllShow,
-  updateOne: updateOneShow,
-  deleteOne: deleteOneShow,
-} = require("../controllers/show-controller");
+const {router: ReviewRouter} = require("./review-router");
 const {router: AuthRouter} = require('./auth-router');
 
 // Middleware
@@ -21,6 +16,7 @@ app.use("/auth", AuthRouter);
 
 // Endpoints
 app.use("/title", TitleRouter);
+app.use("/review", ReviewRouter);
 
 app.post("/shows", createShow);
 app.get("/shows", findAllShow);
