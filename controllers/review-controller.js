@@ -14,7 +14,7 @@ const create = async (req, res) => {
 const findAll = async (req, res) => {
     try{        
         console.log(req.query);
-        const result = await Review.find(req.query).populate("performers").exec();
+        const result = await Review.find(req.query).exec();
         res.json(result);
     }catch(e){
         console.error(e);
