@@ -3,10 +3,6 @@
 */
 const path = require("path");
 const express = require("express");
-const app = express();
-const { router: TitleRouter } = require("./title-router");
-const { router: ReviewRouter } = require("./review-router");
-const { router: AuthRouter } = require("./auth-router");
 
 const cors = require("cors");
 const corsOptions = {
@@ -14,7 +10,16 @@ const corsOptions = {
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
+
+const app = express();
+const { router: TitleRouter } = require("./title-router");
+const { router: ReviewRouter } = require("./review-router");
+const { router: AuthRouter } = require("./auth-router");
+
+const cors = require("cors");
+
 // Middleware
+app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.json());
 app.use(cors(corsOptions)); // Use this after the variable declaration
 
@@ -28,7 +33,6 @@ app.get("/", (req, res) => {
 // Endpoints
 app.use("/title", TitleRouter);
 app.use("/review", ReviewRouter);
-
 
 // app.post("/shows", createShow);
 // app.get("/shows", findAllShow);
