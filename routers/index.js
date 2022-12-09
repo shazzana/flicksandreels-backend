@@ -18,12 +18,6 @@ app.use("/auth", AuthRouter);
 app.use("/title", TitleRouter);
 app.use("/review", ReviewRouter);
 
-app.post("/shows", createShow);
-app.get("/shows", findAllShow);
-
-app.put("/shows/:id", updateOneShow);
-app.delete("/shows/:id", deleteOneShow);
-
 app.use(express.static("public"));
 
 // Start server
