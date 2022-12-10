@@ -2,8 +2,6 @@
 const mongoose = require("mongoose");
 const Title = require("./title.js");
 const Review = require("./review.js");
-const PayRoll = require("./payroll");
-const Rates = require("./rates");
 
 // Config
 // const mongoURI = "mongodb://localhost:27017/learn";
@@ -24,6 +22,4 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 module.exports = {
   Title,
   Review,
-  PayRoll,
-  Rates,
 };
