@@ -24,7 +24,7 @@ app.use(express.json());
 app.use("/auth", AuthRouter);
 
 app.get("/", (req, res) => {
-  res.send("This is the root directory");
+  res.send("Weclcome to the root directory");
 });
 
 // Endpoints
