@@ -1,4 +1,8 @@
-const { addUser, authenticate } = require("../services/user-service");
+const {
+  addUser,
+  authenticate,
+  signOutUser,
+} = require("../services/user-service");
 const httpStatus = require("http-status");
 
 const signUp = async (req, res) => {
@@ -22,7 +26,17 @@ const signIn = async (req, res) => {
   }
 };
 
+const signOut = async (req, res) => {
+  try {
+    const result = await signOutUser();
+    res.json(result);
+  } catch (err) {
+    res.status(401).json({ error: err.message });
+  }
+};
+
 module.exports = {
   signUp,
   signIn,
+  signOut,
 };
