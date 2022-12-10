@@ -19,7 +19,6 @@ const { router: AuthRouter } = require("./auth-router");
 // Middleware
 app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.json());
-app.use(cors(corsOptions)); // Use this after the variable declaration
 
 // Routers
 app.use("/auth", AuthRouter);
