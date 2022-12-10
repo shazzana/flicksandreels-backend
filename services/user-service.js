@@ -3,6 +3,7 @@ const {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
 } = require("firebase/auth");
 
 const apiKey = process.env.FIREBASE_API_KEY;
@@ -19,4 +20,4 @@ exports.addUser = (email, password) =>
 exports.authenticate = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
 
-exports.signOut = () => signOut(auth);
+exports.signOutUser = () => signOut(auth);
