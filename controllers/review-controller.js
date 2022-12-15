@@ -24,9 +24,9 @@ const findAll = async (req, res) => {
 
 const updateOne = async(req, res) => {
     try{
-        const id = req.params.id;
+        const movieId = req.params.movieId;
 
-        const updated = await Review.updateOne({_id:id}, {$set: req.body});
+        const updated = await Review.updateOne({movieId: movieId}, {$set: req.body});
         res.json(updated);
 
     }catch(e){
@@ -37,8 +37,8 @@ const updateOne = async(req, res) => {
 
 const deleteOne = async (req,res) => {
     try{
-        const id = req.params.id;
-        const deleted = await Review.deleteOne({_id:id});
+        const movieId = req.params.movieId;
+        const deleted = await Review.deleteOne({movieId: movieId});
         res.json(deleted);
     }catch(e){  
         console.error(e);
@@ -48,8 +48,8 @@ const deleteOne = async (req,res) => {
 
 const findOne = async (req, res) => {
     try{
-        const id = req.params.id;
-        const fetched = await Review.findOne({_id:id});
+        const movieId = req.params.movieId;
+        const fetched = await Review.findOne({movieId:movieId});
         res.json(fetched);
     }catch(e){
         console.error(e);

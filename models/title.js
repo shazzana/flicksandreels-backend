@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const titleSchema = new Schema(
     {
-        id: {
+        movieId: {
             type: String,
             required: true,
         },
