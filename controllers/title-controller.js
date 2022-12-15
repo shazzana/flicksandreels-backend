@@ -30,8 +30,8 @@ const findAll = async (req, res) => {
 
 const updateOne = async (req, res) => {
     try{
-        const id = req.params.id;
-        const updated = await Title.updateOne({_id:id}, {$set:req.body});
+        const movieId = req.params.movieId;
+        const updated = await Title.updateOne({movieId:movieId}, {$set:req.body});
         res.json(updated);
     }catch(e){
         console.error(e);
@@ -41,8 +41,8 @@ const updateOne = async (req, res) => {
 
 const deleteOne = async (req, res) => {
     try{
-        const id = req.params.id;
-        const result = await Title.deleteOne({_id:id});
+        const movieId = req.params.movieId;
+        const result = await Title.deleteOne({_movieId:movieId});
         res.json(result);
     }catch(e){
         console.error(e);
@@ -52,8 +52,8 @@ const deleteOne = async (req, res) => {
 
 const findOne = async (req, res) => {
     try{
-        const id = req.params.id;
-        const fetched = await Title.findOne({_id:id});
+        const movieId = req.params.movieId;
+        const fetched = await Title.findOne({_movieId:movieId});
         res.json(fetched);
     }catch(e){
         console.error(e);
