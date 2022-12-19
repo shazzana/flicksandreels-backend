@@ -1,13 +1,26 @@
 const {Review} = require("../models");
 const httpStatus = require("http-status");
+// const { response } = require("express");
+const dbo = require("../db/conn");
 
-const create = async (req, res) => {
+
+const create = async (req, response) => {
     try{
-        const result = await Review.create(req.body);
-        res.json(result);   
+        let db_connect=dbo.getDb("movieData");
+        let myobj = {
+            movieId : req.body.movieId,
+            title : req.body.title,
+            items : req.body.items,
+        }
+
+        db_connect.collection("reviews").insertOne(myobj, function (err, res) {
+            if (err) throw err;
+            response.json(res);
+        })
+
     }catch(e){
         console.error(e);
-        res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+        response.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
     }
 };
 
@@ -22,16 +35,25 @@ const findAll = async (req, res) => {
     }
 };
 
-const updateOne = async(req, res) => {
+const updateOne = async(req, response) => {
     try{
-        const movieId = req.params.movieId;
+        let db_connect = dbo.getDb("movieData");
+        let movieId = req.params.movieId;
+        let newReview = {
+            $push: { items: req.body.items}
+        };
 
-        const updated = await Review.updateOne({movieId: movieId}, {$set: req.body});
-        res.json(updated);
+        db_connect
+            .collection("reviews")
+            .updateOne({movieId:movieId}, newReview, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+                response.json(res)
+            })
 
     }catch(e){
         console.error(e);
-        res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+        response.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 

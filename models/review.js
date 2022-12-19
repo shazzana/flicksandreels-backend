@@ -13,39 +13,39 @@ const reviewSchema = new Schema({
   items: [{
     username: {
       type: String,
-      required: true,
+      required: false,
     },
     userUrl: {
       type: String,
-      required: true,
+      required: false,
     },
     reviewLink: {
       type: String,
-      required: true,
+      required: false,
     },
     warningSpoilers: {
       type: String,
-      required: true,
+      required: false,
     },
     date: {
       type: String,
-      required: true,
+      required: false,
     },
     rate: {
       type: String,
-      required: true,
+      required: false,
     },
     helpful: {
       type: String,
-      required: true,
+      required: false,
     },
     heading: {
       type: String,
-      required: true,
+      required: false,
     },
     content: {
       type: String,
-      required: true,
+      required: false,
     },
   }]
 
