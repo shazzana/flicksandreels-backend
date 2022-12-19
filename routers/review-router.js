@@ -6,7 +6,7 @@ const router = express.Router()
 router.post("/", create);
 router.get("/", findAll);
 router.get("/:movieId", findOne);
-router.put("/:movieId", updateOne);
+router.put("/:id", updateOne);
 router.delete("/:movieId", deleteOne);
 
 module.exports = {
