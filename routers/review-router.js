@@ -3,11 +3,11 @@ const express = require('express')
 const router = express.Router()
 
 // endpoints here
-router.post("/", create);
-router.get("/", findAll);
-router.get("/:movieId", findOne);
-router.put("/:movieId", updateOne);
-router.delete("/:movieId", deleteOne);
+router.post("/create", create);
+router.get("/find", findAll);
+router.get("/find/:movieId", findOne);
+router.put("/update/:movieId", updateOne);
+router.delete("/delete/:movieId", deleteOne);
 
 module.exports = {
     router
