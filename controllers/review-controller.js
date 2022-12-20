@@ -37,10 +37,11 @@ const findAll = async (req, res) => {
 
 const updateOne = async(req, response) => {
     try{
+        console.log(req.body);
         let db_connect = dbo.getDb("movieData");
         let movieId = req.params.movieId;
         let newReview = {
-            $push: { items: req.body.items}
+            $push: { items: req.body}
         };
 
         db_connect
