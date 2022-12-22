@@ -10,45 +10,46 @@ const reviewSchema = new Schema({
     type: String,
     required: true,
   },
-  items: [{
-    username: {
-      type: String,
-      required: false,
+  items: [
+    {
+      username: {
+        type: String,
+        required: true,
+      },
+      userUrl: {
+        type: String,
+        required: false,
+      },
+      reviewLink: {
+        type: String,
+        required: false,
+      },
+      warningSpoilers: {
+        type: String,
+        required: false,
+      },
+      date: {
+        type: String,
+        required: false,
+      },
+      rate: {
+        type: String,
+        required: false,
+      },
+      helpful: {
+        type: String,
+        required: false,
+      },
+      heading: {
+        type: String,
+        required: true,
+      },
+      content: {
+        type: String,
+        required: true,
+      },
     },
-    userUrl: {
-      type: String,
-      required: false,
-    },
-    reviewLink: {
-      type: String,
-      required: false,
-    },
-    warningSpoilers: {
-      type: String,
-      required: false,
-    },
-    date: {
-      type: String,
-      required: false,
-    },
-    rate: {
-      type: String,
-      required: false,
-    },
-    helpful: {
-      type: String,
-      required: false,
-    },
-    heading: {
-      type: String,
-      required: false,
-    },
-    content: {
-      type: String,
-      required: false,
-    },
-  }]
-
+  ],
 });
 
 const Review = mongoose.model("Review", reviewSchema);
